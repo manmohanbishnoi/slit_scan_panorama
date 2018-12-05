@@ -18,3 +18,11 @@ add_executable(RealTimeOpenCV ${PROJECT_SOURCE_DIR}/src/UTILITY.cpp
 target_link_libraries(RealTimeOpenCV ${OpenCV_LIBS})
 
 set_property(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR} PROPERTY VS_STARTUP_PROJECT RealTimeOpenCV)
+
+# copy files to binary directory for Visual Studio 2017+ under Windows
+# Debug
+file(COPY "${PROJECT_SOURCE_DIR}/data" DESTINATION "${PROJECT_BINARY_DIR}/Debug/")
+file(COPY "${PROJECT_SOURCE_DIR}/output" DESTINATION "${PROJECT_BINARY_DIR}/Debug/")
+# Release
+file(COPY "${PROJECT_SOURCE_DIR}/data" DESTINATION "${PROJECT_BINARY_DIR}/Release/")
+file(COPY "${PROJECT_SOURCE_DIR}/output" DESTINATION "${PROJECT_BINARY_DIR}/Release/")
