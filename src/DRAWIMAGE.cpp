@@ -25,7 +25,7 @@ private:
 
     maskGaussianPyramid.clear();
     Mat currentImg;
-    cvtColor(blendMask, currentImg, CV_GRAY2BGR);
+    cvtColor(blendMask, currentImg, COLOR_GRAY2BGR);
     maskGaussianPyramid.push_back(currentImg); //highest level
 
     currentImg = blendMask;
@@ -38,7 +38,7 @@ private:
       }
 
       Mat down;
-      cvtColor(_down, down, CV_GRAY2BGR);
+      cvtColor(_down, down, COLOR_GRAY2BGR);
       maskGaussianPyramid.push_back(down);
       currentImg = _down;
     }
@@ -137,7 +137,7 @@ Mat DRAWIMAGE::DRAW(Mat& thisFrame, int X, int Y, double SCALE, bool SHOWIMAGE =
 
   if(thisFrame.channels()<3)
   {
-    cvtColor(thisFrame,thisFrame, CV_GRAY2BGR);
+    cvtColor(thisFrame,thisFrame, COLOR_GRAY2BGR);
   }
 
   if(X<0&&X+thisFrame.cols>CANVAS.cols)
@@ -259,6 +259,8 @@ bool DRAWIMAGE::SAVEPANO(string path)
   Rect R(0,maxY,LASTXY.x,minY-maxY);
   if(!CANVAS.empty())
     imwrite(path.c_str(),CANVAS(R));
+
+  return false;
   }
 
 Point DRAWIMAGE::FILTER(Point VAL, Point FILVAL, double FILTER)

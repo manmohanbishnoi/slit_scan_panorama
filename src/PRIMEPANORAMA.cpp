@@ -82,7 +82,7 @@ void PRIMEPANO::REFRESH()
 int PRIMEPANO::CALCFEAT(Mat& thisFrame, bool SHOWIMAGE = false)
 {
   if(thisFrame.channels()>1)
-    cvtColor(thisFrame,thisFrame,CV_BGR2GRAY);
+    cvtColor(thisFrame,thisFrame,COLOR_BGR2GRAY);
 
   if(THISPOINTS.size()>0)
   {
@@ -110,10 +110,10 @@ int PRIMEPANO::CALCFEAT(Mat& thisFrame, bool SHOWIMAGE = false)
 int PRIMEPANO::MATCHFEAT(Mat& thisFrame, Mat& lastFrame, bool SHOWIMAGE)
 {
   if(thisFrame.channels()>1)
-    cvtColor(thisFrame,thisFrame,CV_BGR2GRAY);
+    cvtColor(thisFrame,thisFrame, COLOR_BGR2GRAY);
 
   if(lastFrame.channels()>1)
-    cvtColor(lastFrame,lastFrame,CV_BGR2GRAY);
+    cvtColor(lastFrame,lastFrame, COLOR_BGR2GRAY);
 
   if(THISPOINTS.size()==0||LASTPOINTS.size()==0)
   {
